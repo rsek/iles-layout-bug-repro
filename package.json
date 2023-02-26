@@ -1,0 +1,24 @@
+{
+	"name": "iles-layout-bug",
+	"version": "0.0.0",
+	"scripts": {
+		"dev": "iles dev --open",
+		"build": "iles build",
+		"preview": "iles preview --open --port 5050",
+		"typecheck": "vue-tsc --noEmit"
+	},
+	"engines": {
+		"node": "^14.18 || >= 16.0.0"
+	},
+	"devDependencies": {
+		"iles": "^0.9.2",
+		"npm": "^9.5.1",
+		"sass": "^1.58.3",
+		"typescript": "^4.5",
+		"vue-tsc": "^0.38"
+	},
+	"dependencies": {
+		"vite": "^4.1.4",
+		"vuetify": "^3.1.6"
+	}
+}
