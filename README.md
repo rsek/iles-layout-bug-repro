@@ -1,14 +1,12 @@
-[troubleshooting section]: https://iles-docs.netlify.app/faqs/troubleshooting
-
 - [x] I have read the __[troubleshooting section]__ before opening an issue.
 - [x] I have tried upgrading `iles` and `vite`.
 
-
 ### Description 📖
 
-So far I've been able to reproduce this with both Vuetify (`VLayout`) and Inkline (`ILayout`). This is with the appropriate resolvers (`Vuetify3Resolver`, `InklineResolver`) from 'unplugin-vue-components/resolvers'.
+So far I've been able to reproduce this with both Vuetify (`VLayout`) and Inkline (`ILayout`). This is with the appropriate resolvers (`Vuetify3Resolver`, `InklineResolver`) from `unplugin-vue-components/resolvers`.
 
 ```typescript
+// iles.config.ts
 import { defineConfig } from 'iles'
 import { Vuetify3Resolver } from 'unplugin-vue-components/resolvers'
 
@@ -25,8 +23,8 @@ export default defineConfig({
 ```
 
 ```typescript
-declare module '@vue/runtime-core' {
  // components.d.ts
+declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     // ...
     VLayout: typeof import('./src/layouts/v.vue')['default'] // expected: typeof import('vuetify/components')['VLayout']
@@ -40,7 +38,7 @@ declare module '@vue/runtime-core' {
 
 ### Reproduction 🐞
 
-_Please provide a link to a repo that can reproduce the problem you ran into._
+[Available here](https://github.com/rsek/iles-layout-bug-repro). This reproduces it with Vuetify, but the same pattern is apparent with Inkline's `ILayout`, where it points to `src/layouts/i.vue` instead of `src/layouts/v.vue`.
 
 <details>
 <summary>Dependencies Info</summary>
